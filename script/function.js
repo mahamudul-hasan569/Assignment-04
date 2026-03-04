@@ -11,7 +11,7 @@ const interviewBtn = document.getElementById('interview-btn');
 const rejectedBtn = document.getElementById('rejected-btn');
 const filterSection = document.getElementById('filtered-section');
 const jobCount = document.getElementById('jobCountText');
-const allCards = document.querySelectorAll('#allJobs .card-container');
+
 
 // Count Function 01
 function count() {
@@ -25,7 +25,7 @@ changeJobCount();
 
 
 
-// change job count
+// change job count function
 
 function changeJobCount() {
     const totalJobs = allJobs.children.length;
@@ -44,6 +44,7 @@ function changeJobCount() {
 
 
 // All jobs button function
+
 function toggleAllJobsBtn(id) {
     allBtn.classList.add('text-[#64748B]', 'bg-white');
     interviewBtn.classList.add('text-[#64748B]', 'bg-white');
@@ -165,19 +166,19 @@ mainContainer.addEventListener('click',
         }
         else if (event.target.classList.contains('fa-trash-can')) {
 
-            const card = event.target.parentNode.parentNode.parentNode;
-            const jobTitle = card.querySelector('.jobTitle').innerText;
+            const parentNode = event.target.parentNode.parentNode.parentNode;
+            const jobTitle = parentNode.querySelector('.jobTitle').innerText;
 
             interviewList = interviewList.filter(item => item.jobTitle !== jobTitle)
 
             rejectedList = rejectedList.filter(item => item.jobTitle !== jobTitle)
-            for(let cardd of allCards){
-                const title = cardd.querySelector('.jobTitle').innerText
-                if (title == jobTitle){
-                    cardd.remove();
+            const allJobss = document.querySelectorAll('#allJobs .card-container');
+            for (let job of allJobss) {
+                const title = job.querySelector('.jobTitle').innerText;
+                if (title === jobTitle) {
+                    job.remove();
                 }
             }
-            card.remove();
             if (currentStatus === 'interview-btn') {
                 interviewListRender();
             }
