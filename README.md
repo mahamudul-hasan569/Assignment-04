@@ -10,7 +10,7 @@
 =>and append it to the parent using appendChild().  
 
 ## Question 3: What is Event Bubbling? And how does it work?
-=>Event Bubbling is when an event on an element first runs on that element and then propagates up to its parent elements in the DOM, allowing parents to also respond to the same event.
+=>Event Bubbling is when an event on an element first runs on that element and then propagates up to its parent elements in the Dom, allowing parents to also respond to the same event.
 
 ## Question 4: What is Event Delegation in JavaScript? Why is it useful?
 =>Event Delegation is a technique where a single event listener is added to a parent element to handle events for its child elements using event bubbling.
